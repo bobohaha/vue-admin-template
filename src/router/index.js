@@ -46,33 +46,41 @@ export const constantRoutes = [
   {
     path: '/',
     component: Layout,
-    redirect: '/dashboard',
+    redirect: '/tester',
     children: [{
-      path: 'dashboard',
-      name: 'Dashboard',
-      component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Dashboard', icon: 'dashboard' }
+      path: 'tester',
+      name: 'Tester',
+      component: () => import('@/views/tester/index'),
+      meta: { title: 'Tester', icon: 'dashboard' }
     }]
   },
 
   {
-    path: '/example',
+    path: '/tools',
     component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: 'Example', icon: 'example' },
+    redirect: '/tools/ai',
+    name: 'Tools',
+    meta: { title: 'Tools', icon: 'example' },
     children: [
       {
-        path: 'table',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
+        path: 'ai',
+        name: 'AI',
+        component: () => import('@/views/tools/ai/'),
+        meta: { title: 'Ai', icon: 'table' },
+        children: [
+          {
+            path: 'appointment-lesson',
+            component: () => import('@/views/tools/ai/appointment-lesson'),
+            name: 'appointment-lesson',
+            meta: { title: '一键约课' }
+          }
+        ]
       },
       {
-        path: 'tree',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
+        path: '',
+        name: '1v1',
+        component: () => import('@/views/lesson/index'),
+        meta: { title: '1v1', icon: 'tree' }
       }
     ]
   },
