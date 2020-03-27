@@ -64,8 +64,8 @@ export const constantRoutes = [
     children: [
       {
         path: 'ai',
-        name: 'AI',
-        component: () => import('@/views/tools/ai/'),
+        name: 'Ai',
+        component: () => import('@/views/tools/ai/index'),
         meta: { title: 'Ai', icon: 'table' },
         children: [
           {
@@ -73,13 +73,19 @@ export const constantRoutes = [
             component: () => import('@/views/tools/ai/appointment-lesson'),
             name: 'appointment-lesson',
             meta: { title: '一键约课' }
+          },
+          {
+            path: 'appointment-lesson',
+            component: () => import('@/views/tools/ai/appointment-lesson'),
+            name: 'appointment-lesson',
+            meta: { title: '提前发课时' }
           }
         ]
       },
       {
         path: '',
         name: '1v1',
-        component: () => import('@/views/lesson/index'),
+        component: () => import('@/views/tools/lesson/index'),
         meta: { title: '1v1', icon: 'tree' }
       }
     ]
